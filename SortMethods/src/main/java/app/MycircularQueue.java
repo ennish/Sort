@@ -5,14 +5,14 @@ import java.util.Arrays;
 /**
  * LooQueue
  */
-public class MycircularQueue {
+public class MyCircularQueue {
 
     private int[] nums = null;
     private int size = 0;
     private int head = -1;
     private int tail = -1;
 
-    public MycircularQueue(int length) {
+    public MyCircularQueue(int length) {
         if (nums == null) {
             nums = new int[length];
         } else {
@@ -41,19 +41,23 @@ public class MycircularQueue {
         if (size >= nums.length) {
             return false;
         }
-        nums[(this.tail + 1) % size] = value;
-        this.tail = this.tail + 1;
+        this.tail = (this.tail + 1) % nums.length;
+        nums[this.tail] = value;
+        size += 1;
+
+        if (head == -1) {
+            head = tail;
+        }
         return true;
     }
 
-    public int deQueue() {
+    public boolean deQueue() {
         if (size <= 0) {
-            return -1;
+            return false;
         }
-        int temp = nums[head];
-        nums[head] = 0;
-        this.head = (this.head + 1) % size;
-        return temp;
+        this.head = (this.head + 1) % nums.length;
+        size -= 1;
+        return true;
     }
 
     public boolean isEmpty() {

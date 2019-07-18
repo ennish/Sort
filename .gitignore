@@ -1,3 +1,6 @@
 SortMethods/bin/*
 SortMethods/.project
 SortMethods/.settings/org.eclipse.jdt.core.prefs
+SortMethods/.settings/org.eclipse.jdt.apt.core.prefs
+SortMethods/.settings/org.eclipse.m2e.core.prefs
+SortMethods/target/*
