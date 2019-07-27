@@ -16,6 +16,9 @@ public class MyCircularQueue {
         if (nums == null) {
             nums = new int[length];
         } else {
+            /**
+             * 初始化方法应该只能被调用一次。
+             */
             if (length < size) {
                 throw new IllegalArgumentException("length is too low to cover the original data.");
             }
